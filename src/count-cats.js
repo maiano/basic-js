@@ -16,8 +16,8 @@ const { NotImplementedError } = require("../extensions/index.js");
  */
 function countCats(matrix) {
   return matrix
-    .flat()
-    .reduce((prev, curr) => prev + (curr === "^^" ? 1 : 0), 0);
+    .map((row) => row.filter((el) => el === "^^").length)
+    .reduce((prev, curr) => prev + curr, 0);
 }
 
 module.exports = {
